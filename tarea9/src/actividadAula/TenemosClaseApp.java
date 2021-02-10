@@ -41,9 +41,11 @@ class TenemosClaseApp {
 		
 		//Llamada al método consultaClase
 		tenemosClase = consultaClase(claseHoy, profesorHoy, aulaHoy);
+		System.out.println(tenemosClase);
 		
 		//Si hay clase llamamos al método para mostrar aprobados
-		//if (tenemosClase)
+		if (tenemosClase)
+			estudiantesAprobados(claseHoy);
 			
 	}
 	
@@ -51,15 +53,44 @@ class TenemosClaseApp {
 	public static boolean consultaClase (Estudiante claseHoy[], Profesor profesorHoy, Aula aulaHoy) {
 		//Variables
 		boolean tenemosClase = true;
+		final int ASISTENCIA_MIN_PORC = 50;
+		int numAsistentesHoy = 0;
 		
-		//Comprobamos que materia.Profesor y materia.Aula coinciden, así como recorremos
-		//el array y comprobamos que los alumnos asistentes son más del 50% de la ocupacionMax
-		//del aula
+		//Comprobamos que el profesorHoy asiste, que profesorHoy.materia y
+		//aulaHoy.materia coinciden, y recorremos el vector claseHoy y comprobamos que los
+		//alumnos asistentes son más del 50% de la ocupacionMax del aulaHoy
+		if (!profesorHoy.asistencia) 
+			tenemosClase = false;
+		
+		if (!profesorHoy.getMateria().equals(aulaHoy.getMateria()))
+			tenemosClase = false;
+		
+		for (Estudiante estudiante : claseHoy) {
+			if (estudiante.asistencia)
+				numAsistentesHoy++;
+		}
+		
+		if (((double)aulaHoy.getOcupacionMax() * ASISTENCIA_MIN_PORC / 100) < numAsistentesHoy)
+			tenemosClase = false;
 		
 		return tenemosClase;
 	}
 	
 	//Método para mostrar cuantos alumnos y alumnas han aprobado
-	
+	public static void estudiantesAprobados(Estudiante claseHoy[]) {
+		//Variables
+		int calificacion;
+		Estudiante hombresAprobados[] = new Estudiante[claseHoy.length];
+		Estudiante mujeresAprobadas[] = new Estudiante[claseHoy.length];
+		
+		//Recorremos el vector de estudiantes
+		for (Estudiante estudiante : claseHoy) {
+			calificacion = estudiante.getCalificacion();
+			if (calificacion >= 5) {	//Están aprobados
+				
+			}
+		}
+		
+	}
 
 }

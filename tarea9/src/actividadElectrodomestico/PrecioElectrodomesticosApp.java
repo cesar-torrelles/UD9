@@ -55,9 +55,10 @@ class PrecioElectrodomesticosApp {
 	}
 	
 	//Método para mostrar un vector de objetos por consola
-	public static void mostrarObjetos (Electrodomestico vectorObjetos[]) {
+	/*public static void mostrarObjetos (Electrodomestico vectorObjetos[]) {
 		for (Electrodomestico electrodomestico: vectorObjetos[])
 			System.out.println(electrodomestico.getPrecioBase(), electrodomestico.getColor(), electrodomestico.getConsumoEnergetico(), electrodomestico.getPeso());
-	}
+	
+	}*/
 
 }
