@@ -32,7 +32,7 @@ class Estudiante extends Persona {
 	}
 
 	
-	//Método que identifíca si un estudiante se ha presentado a la clase o no
+	//Mï¿½todo que identifï¿½ca si un estudiante se ha presentado a la clase o no
 	public boolean presenteEnClase () {
 		//Variables
 		boolean presente;
@@ -49,10 +49,10 @@ class Estudiante extends Persona {
 		return presente;
 	}
 	
-	//Método toString() @override
+	//Mï¿½todo toString() @override
 	public String toString() {
-		return "Nombre: " + this.nombre + " Edad: " + this.edad + " Calificacion: " +
-				this.calificacion;
+		return "Nombre: " + this.nombre + " Edad: " + this.edad +" aÃ±os "+ " Calificacion: " +
+				this.calificacion+ " puntos ";
 	}
 	
 }

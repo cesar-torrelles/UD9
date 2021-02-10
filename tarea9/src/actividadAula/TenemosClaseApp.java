@@ -6,8 +6,8 @@ package actividadAula;
 /**
  * @author viach
  * Clase ejecutable que se encarga de instanciar todos los objetos de las clases Aula, Profesor
- * y Estudiante, y después comprueba si tenemos clase llamando al método consultaClase. En caso
- * de que sea así, llamamos al método alumnesAprobados y mostramos cuantos alumnos y cuantas
+ * y Estudiante, y despuï¿½s comprueba si tenemos clase llamando al mï¿½todo consultaClase. En caso
+ * de que sea asï¿½, llamamos al mï¿½todo alumnesAprobados y mostramos cuantos alumnos y cuantas
  * alumnas han aprobado.
  */
 class TenemosClaseApp {
@@ -36,47 +36,61 @@ class TenemosClaseApp {
 
 		profesorHoy = new Profesor("Ana", 20, "mujer", "filosofia");
 		
-		aulaHoy = new Aula(123, 15, "filosofia");
+		aulaHoy = new Aula(123, 10, "filosofia");
 		
 		
-		//Llamada al método consultaClase
+		//Llamada al mï¿½todo consultaClase
 		tenemosClase = consultaClase(claseHoy, profesorHoy, aulaHoy);
-		System.out.println(tenemosClase);
 		
-		//Si hay clase llamamos al método para mostrar aprobados
+		
+		if(tenemosClase){
+		System.out.println("\nSe ha realizado la clase \n");
+		}
+		else {System.out.println("\nNo se ha realizado la clase \n");}
+		//Si hay clase llamamos al mï¿½todo para mostrar aprobados
 		if (tenemosClase)
 			estudiantesAprobados(claseHoy);
 			
 	}
 	
-	//Método para comprobar si tenemos clase
+	
+	//Mï¿½todo para comprobar si tenemos clase
 	public static boolean consultaClase (Estudiante claseHoy[], Profesor profesorHoy, Aula aulaHoy) {
 		//Variables
 		boolean tenemosClase = true;
-		final int ASISTENCIA_MIN_PORC = 50;
+		final int ASISTENCIA_MIN_PORC = (aulaHoy.getOcupacionMax()/2);
 		int numAsistentesHoy = 0;
 		
 		//Comprobamos que el profesorHoy asiste, que profesorHoy.materia y
 		//aulaHoy.materia coinciden, y recorremos el vector claseHoy y comprobamos que los
-		//alumnos asistentes son más del 50% de la ocupacionMax del aulaHoy
-		if (!profesorHoy.asistencia) 
+		//alumnos asistentes son mï¿½s del 50% de la ocupacionMax del aulaHoy
+		if (!profesorHoy.asistencia) {
 			tenemosClase = false;
+		System.out.println("El Profesor no ha venido");
+		}
 		
-		if (!profesorHoy.getMateria().equals(aulaHoy.getMateria()))
+		if (!profesorHoy.getMateria().equals(aulaHoy.getMateria())) {
 			tenemosClase = false;
-		
+		System.out.println("La materia no es la que toca");
+		}
 		for (Estudiante estudiante : claseHoy) {
 			if (estudiante.asistencia)
 				numAsistentesHoy++;
+			
 		}
 		
-		if (((double)aulaHoy.getOcupacionMax() * ASISTENCIA_MIN_PORC / 100) < numAsistentesHoy)
+		
+		if (numAsistentesHoy < ASISTENCIA_MIN_PORC) {
 			tenemosClase = false;
+		System.out.println("No hay suficientes alumnos");
+		System.out.println("Hoy han asistido: " +numAsistentesHoy + " Alumnos");
+		}
+		
 		
 		return tenemosClase;
 	}
 	
-	//Método para mostrar cuantos alumnos y alumnas han aprobado
+	//Mï¿½todo para mostrar cuantos alumnos y alumnas han aprobado
 	public static void estudiantesAprobados(Estudiante claseHoy[]) {
 		//Variables
 		int calificacion, i = 0, j = 0;
@@ -86,7 +100,7 @@ class TenemosClaseApp {
 		//Recorremos el vector de estudiantes
 		for (Estudiante estudiante : claseHoy) {
 			calificacion = estudiante.getCalificacion();
-			if (calificacion >= 5) {	//Están aprobados
+			if (calificacion >= 5) {	//Estï¿½n aprobados
 				if (estudiante.getSexo() == "hombre") {
 					hombresAprobados[i] = estudiante;
 					i++;
@@ -99,18 +113,18 @@ class TenemosClaseApp {
 		}
 		
 		//Imprimimos los aprobados
-		System.out.println("Los hombres aprobados son:");
+		System.out.println("Los Alumnos aprobados son:");
 		for (i = 0; (hombresAprobados[i] != null) && (i < hombresAprobados.length) ;i++) {
 			System.out.println(hombresAprobados[i].toString());		//Sin toString nos devuelve
-																	//dirección de memoria
+																	//direcciï¿½n de memoria
 		}
-		System.out.println("En total han aprobado " + i + ".");
+		System.out.println("\nEn total han aprobado " +j + " Chicos.");
 		
-		System.out.println("Los hombres aprobados son:");
+		System.out.println("\nLas Alumnas aprobadas son:");
 		for (j = 0; (mujeresAprobadas[j] != null) && (j < mujeresAprobadas.length) ;j++) {
 			System.out.println(mujeresAprobadas[j].toString());
 		}
-		System.out.println("En total han aprobado " + j + ".");
+		System.out.println("\nEn total han aprobado " +j + " Chicas.");
 		
 	}
 
