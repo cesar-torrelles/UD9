@@ -49,4 +49,10 @@ class Estudiante extends Persona {
 		return presente;
 	}
 	
+	//Método toString() @override
+	public String toString() {
+		return "Nombre: " + this.nombre + " Edad: " + this.edad + " Calificacion: " +
+				this.calificacion;
+	}
+	
 }

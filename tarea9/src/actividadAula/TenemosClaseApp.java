@@ -79,7 +79,7 @@ class TenemosClaseApp {
 	//Método para mostrar cuantos alumnos y alumnas han aprobado
 	public static void estudiantesAprobados(Estudiante claseHoy[]) {
 		//Variables
-		int calificacion;
+		int calificacion, i = 0, j = 0;
 		Estudiante hombresAprobados[] = new Estudiante[claseHoy.length];
 		Estudiante mujeresAprobadas[] = new Estudiante[claseHoy.length];
 		
@@ -87,9 +87,30 @@ class TenemosClaseApp {
 		for (Estudiante estudiante : claseHoy) {
 			calificacion = estudiante.getCalificacion();
 			if (calificacion >= 5) {	//Están aprobados
-				
+				if (estudiante.getSexo() == "hombre") {
+					hombresAprobados[i] = estudiante;
+					i++;
+				}
+				else if (estudiante.getSexo() == "mujer") {
+					mujeresAprobadas[j] = estudiante;
+					j++;
+				}
 			}
 		}
+		
+		//Imprimimos los aprobados
+		System.out.println("Los hombres aprobados son:");
+		for (i = 0; (hombresAprobados[i] != null) && (i < hombresAprobados.length) ;i++) {
+			System.out.println(hombresAprobados[i].toString());		//Sin toString nos devuelve
+																	//dirección de memoria
+		}
+		System.out.println("En total han aprobado " + i + ".");
+		
+		System.out.println("Los hombres aprobados son:");
+		for (j = 0; (mujeresAprobadas[j] != null) && (j < mujeresAprobadas.length) ;j++) {
+			System.out.println(mujeresAprobadas[j].toString());
+		}
+		System.out.println("En total han aprobado " + j + ".");
 		
 	}
 
