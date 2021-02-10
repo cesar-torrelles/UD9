@@ -22,8 +22,8 @@ class Profesor extends Persona {
 	
 	
 	//Constructor
-	public Profesor(String materia) {
-		super();
+	public Profesor(String nombre, int edad, String sexo, String materia) {
+		super(nombre, edad, sexo);
 		this.materia = materia;
 	}
 

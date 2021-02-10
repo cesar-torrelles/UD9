@@ -12,19 +12,14 @@ abstract class Persona {
 	protected String nombre;
 	protected int edad;
 	protected String sexo;
+	protected boolean asistencia;
 	
-	//Constructores
-	//Constructor por defecto. En esta clase nunca se debería de usar
-	public Persona() {
-		this.nombre = "PRUEBA";
-		this.edad = 0;
-		this.sexo = "PRUEBA";
-	}
-	
+	//Constructor
 	public Persona(String nombre, int edad, String sexo) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.sexo = sexo;
+		this.asistencia = presenteEnClase();
 	}
 
 

@@ -16,8 +16,8 @@ class Estudiante extends Persona {
 	
 	
 	//Constructor
-	public Estudiante(int calificacion) {
-		super();
+	public Estudiante(String nombre, int edad, String sexo, int calificacion) {
+		super(nombre, edad, sexo);
 		this.calificacion = calificacion;
 	}
 
