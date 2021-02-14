@@ -1,20 +1,21 @@
 /**
  * 
  */
-package actividadAula;
+package models;
 
-/**
- * @author viach
- * Clase Aula
- */
-class Aula {
-	//Atributos
+// Creamos una clase llamada Aula
+ 
+public class Aula {
+	
+	//Añadimos los siguientes Atributos
 	private int id;
 	private int ocupacionMax;
 	private String materia;
 	
 	
-	//Constructores
+	//Añadimos el Constructor
+	//usaremos tres parametros para definir: la id del Aula, la capacidad Maxima, y la materia que se da en esa aula
+	
 	public Aula(int id, int ocupacionMax, String materia) {
 		this.id = id;
 		this.ocupacionMax = ocupacionMax;
@@ -22,7 +23,7 @@ class Aula {
 	}
 
 	
-	//Getters y setters
+	//Añadimos los Getters y setters
 	public int getId() {
 		return id;
 	}

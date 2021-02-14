@@ -1,28 +1,28 @@
 /**
  * 
  */
-package actividadAula;
+package models;
 
 import java.util.concurrent.ThreadLocalRandom;	//Para generar valores aleatorios
 
-/**
- * @author viach
- * Subclase de Persona, clase Estudiante
- */
-class Estudiante extends Persona {
+
+  
+ //Subclase de Persona, clase Estudiante
+
+public class Estudiante extends Persona {
 	//Atributos
 	private int calificacion;
 	public final int INDICE_ASISTENCIA_ESTUDIANTE = 50;
 	
 	
-	//Constructor
+	//A√±adimos el Constructor
 	public Estudiante(String nombre, int edad, String sexo, int calificacion) {
 		super(nombre, edad, sexo);
 		this.calificacion = calificacion;
 	}
 
 	
-	//Getters y setters
+	//A√±adimos los Getters y setters
 	public int getCalificacion() {
 		return calificacion;
 	}
@@ -32,9 +32,11 @@ class Estudiante extends Persona {
 	}
 
 	
-	//MÈtodo que identifÌca si un estudiante se ha presentado a la clase o no
+	//M√©todo que identif√≠ca si un estudiante se ha presentado a la clase o no
+	// se creara aleatoriamente un valor de asistencia para cada alumno 
 	public boolean presenteEnClase () {
-		//Variables
+		
+		//Creamos las Variables
 		boolean presente;
 		
 		//Generamos un valor aleatorio entre 1 y 100
@@ -49,10 +51,10 @@ class Estudiante extends Persona {
 		return presente;
 	}
 	
-	//MÈtodo toString() @override
+	//Metodo toString, para imprimir la lista de alumnos
 	public String toString() {
-		return "Nombre: " + this.nombre + " Edad: " + this.edad + " Calificacion: " +
-				this.calificacion;
+		return "Nombre: " + this.nombre + " Edad: " + this.edad +" a√±os "+ " Calificacion: " +
+				this.calificacion+ " puntos ";
 	}
 	
 }
