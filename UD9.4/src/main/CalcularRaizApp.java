@@ -5,7 +5,7 @@ package main;
 import raices.raices;
 
 //creamos una nueva Main donde crearemos los objetos y le pediremos que se realicen los calculos
-public class CalcularRaiz {
+public class CalcularRaizApp {
 
 	public static void main(String[] args) {
 
