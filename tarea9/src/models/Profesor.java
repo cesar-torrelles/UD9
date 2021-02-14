@@ -1,27 +1,27 @@
 /**
  * 
  */
-package actividadAula;
+package models;
 
 import java.util.concurrent.ThreadLocalRandom;	//Para generar valores aleatorios
 
-/**
- * @author viach
- * Subclase de Persona, clase Profesor
- */
-class Profesor extends Persona {
-	//Constantes
+//Creamos la Subclase de Persona, llamada clase Profesor
+ 
+public class Profesor extends Persona {
+	
+	//A√±adimos las Constantes de las materias que puede dar el profesor
 	public final String MATEM = "matematicas";
 	public final String FILOS = "filosofia";
 	public final String FISIC = "fisica";
+	
+	//a√±adimos una constante que nos determinara el porcentaje de asistencia del profesor
 	public final int INDICE_ASISTENCIA_PROFESOR = 80;
 	
-	
-	//Atributo
+	//a√±adimos el atributo de la materia para el profesor
 	private String materia;
 	
 	
-	//Constructor
+	//Creamos el Constructor de la clase profesor
 	public Profesor(String nombre, int edad, String sexo, String materia) {
 		super(nombre, edad, sexo);
 		this.materia = materia;
@@ -38,9 +38,10 @@ class Profesor extends Persona {
 	}
 
 
-	//MÈtodo que identifÌca si un profesor se ha presentado a la clase o no
+	//Creamos un Metodo con retorno que determina si un profesor se ha presentado a la clase o no
 	public boolean presenteEnClase () {
-		//Variables
+		
+		//creamos una variable booleana que nos diga si esta presente
 		boolean presente;
 		
 		//Generamos un valor aleatorio entre 1 y 100
@@ -52,6 +53,7 @@ class Profesor extends Persona {
 		else
 			presente = false;
 		
+		//retornamos un valor booleano
 		return presente;
 	}
 	
